@@ -2,9 +2,8 @@ from pyannote.audio import Pipeline
 import os
 
 token = os.environ["HUGGINGFACE_API_KEY"]
-print(token)
 
-pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization@2.1", use_auth_token="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")
+pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization@2.1", use_auth_token=token)
 diarization = pipeline("sample.wav")
 
 for turn, _, speaker in diarization.itertracks(yield_label=True):
