@@ -1,0 +1,8 @@
+services:
+  transcript:
+    build: .
+    volumes:
+      - .:/app
+    command: python3 main.py
+    environment:
+      - HUGGINGFACE_API_KEY=$HUGGINGFACE_API_KEY
