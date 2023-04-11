@@ -8,6 +8,7 @@ token = os.environ["HUGGINGFACE_API_KEY"]
 audio_file = 'sample.wav'
 
 pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization@2.1", use_auth_token=token)
+
 diarization = pipeline(audio_file, num_speakers=3)
 
 model = whisper.load_model("large")
@@ -19,5 +20,6 @@ with open('result.txt', 'w') as f:
         waveform, sample_rate = audio.crop(audio_file, segment)
         text = model.transcribe(waveform.squeeze().numpy())["text"]
         log = f"[{segment.start:03.1f}s - {segment.end:03.1f}s] {speaker}: {text}"
+        log = f"{speaker}: {text}"
         print(log, file=f)
         print(log)
