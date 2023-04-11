@@ -9,7 +9,9 @@ audio_file = 'sample.wav'
 
 pipeline = Pipeline.from_pretrained("pyannote/speaker-diarization@2.1", use_auth_token=token)
 
-diarization = pipeline(audio_file, num_speakers=3)
+print("How many speakers?")
+num_speakers = int(input())
+diarization = pipeline(audio_file, num_speakers=num_speakers)
 
 model = whisper.load_model("large")
 
