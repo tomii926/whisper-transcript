@@ -1,8 +1,11 @@
 import os
 
 import whisper
+from dotenv import load_dotenv
 from pyannote.audio import Audio, Pipeline
 
+
+load_dotenv()
 
 token = os.environ["HUGGINGFACE_API_KEY"]
 audio_file = 'sample.wav'
