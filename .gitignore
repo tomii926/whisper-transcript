@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 
 
-# sample data
+# data
 /sample.m4a
 /sample.wav
+/transcript.txt
