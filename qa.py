@@ -4,6 +4,7 @@ from langchain.document_loaders import TextLoader
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+import sys
 
 load_dotenv()
 
@@ -57,6 +58,13 @@ COMBINE_PROMPT = PromptTemplate(
 
 chain = load_qa_chain(llm=OpenAI(), chain_type="map_reduce", return_intermediate_steps=True, question_prompt=QUESTION_PROMPT, combine_prompt=COMBINE_PROMPT)
 
+if len(sys.argv) >= 2:
+    query = sys.argv[1]
+    print(query)
+    docs = retriever.get_relevant_documents(query)
+    res = chain({"question": query, "input_documents": docs})
+    print(res['output_text'])
+    exit(0)
 
 with open('questions.txt', 'r') as f:
     queries = f.readlines()
