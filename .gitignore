@@ -161,7 +161,6 @@ cython_debug/
 
 
 # data
-/sample.m4a
-/sample.wav
+/data
 /transcript.txt
 /questions.txt
