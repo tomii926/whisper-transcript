@@ -17,9 +17,6 @@ load_dotenv()
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
-loader = TextLoader('transcript.txt')
-
-documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50, separators=["\n", "。", "、", " ", ])
 
 text = transcript("data/struggle7.m4a")
