@@ -162,5 +162,4 @@ cython_debug/
 
 # data
 /data
-/transcript.txt
-/questions.txt
+/log
