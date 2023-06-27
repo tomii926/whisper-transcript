@@ -6,7 +6,8 @@ from pydub import AudioSegment
 
 
 def transcript(file_path):
-    audio = AudioSegment.from_file(file_path, "m4a")
+    ext = os.path.splitext(file_path)[1][1:]
+    audio = AudioSegment.from_file(file_path, ext)
 
     chunk = 20 * 60 * 1000
 
